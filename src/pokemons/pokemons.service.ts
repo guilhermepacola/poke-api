@@ -15,8 +15,7 @@ private readonly baseUrl = 'https://pokeapi.co/api/v2'
   async listPokemonByName(name: string) {
 
      const getPokemonId = await axios.get(`${this.baseUrl}/pokemon/${name}`);
-     console.log(getPokemonId.data)
-     const objects = {
+     const createPokemonInfo = {
       name: getPokemonId.data.forms[0].name,
       ability: getPokemonId.data.abilities[0].ability,
       ability_2:getPokemonId.data.abilities[1].ability,
@@ -24,6 +23,6 @@ private readonly baseUrl = 'https://pokeapi.co/api/v2'
       height: getPokemonId.data.height
 
      }
-     return objects;
+     return createPokemonInfo;
   }
 }

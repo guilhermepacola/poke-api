@@ -6,10 +6,7 @@ import { AppService } from 'src/app/app.service';
 
 @Controller('pokemon')
 export class PokemonsController {
-  constructor(
-
-    private readonly pokemonsService: PokemonsService, 
-    private readonly appService: AppService){}
+  constructor(private readonly pokemonsService: PokemonsService){}
 
   @Get()
   async listPokemons() {
