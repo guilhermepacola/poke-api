@@ -12,15 +12,18 @@ private readonly baseUrl = 'https://pokeapi.co/api/v2'
     return pokemonsList.data;
   }
 
-   async listPokemonById(id: string) {
-     const getPokemonId = await axios.get(`${this.baseUrl}/pokemon/${id}`);
+  async listPokemonByName(name: string) {
+
+     const getPokemonId = await axios.get(`${this.baseUrl}/pokemon/${name}`);
+     console.log(getPokemonId.data)
      const objects = {
       name: getPokemonId.data.forms[0].name,
-      abilities: getPokemonId.data.abilities[0].ability
+      ability: getPokemonId.data.abilities[0].ability,
+      ability_2:getPokemonId.data.abilities[1].ability,
+      weight: getPokemonId.data.weight,
+      height: getPokemonId.data.height
+
      }
      return objects;
-     
-
   }
-
 }

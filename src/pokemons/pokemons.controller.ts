@@ -18,9 +18,13 @@ export class PokemonsController {
   }
 
   @Post()
- async  listPokemonById(@Body() {id}) {
-    return await this.pokemonsService.listPokemonById(id);
+ async  listPokemonByName(@Body() {name}) {
+    return await this.pokemonsService.listPokemonByName(name);
   }
 
+   @Get(':name')
+  async listPokemonByNameGet(@Param() {name}) {
+    return await this.pokemonsService.listPokemonByName(name);
+  }
 }
 
